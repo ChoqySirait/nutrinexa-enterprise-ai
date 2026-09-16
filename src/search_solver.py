@@ -50,4 +50,4 @@ if __name__ == "__main__":
     target_node = 'Target_Gizi'
     path, cost = a_star_search(start_node, target_node)
     print(f"Rute Optimasi Substitusi Pangan Terbaik: {' -> '.join(path)}")
-    print(f"Total Biaya/Cost Nutrisi Terendah: {cost}")
+    print(f"Total Biaya/Cost Nutrisi Terendah: {cost}") 
