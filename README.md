@@ -35,5 +35,5 @@ graph TD
     Optimizer -->|Algoritma A* (Cost & Heuristic)| Solver[src/search_solver.py]
     Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
     
-    Output --> UI
+    Output -->  UI
 ```
