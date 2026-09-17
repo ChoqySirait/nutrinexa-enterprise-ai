@@ -1,7 +1,5 @@
 import heapq
 
-# Formulasi Ruang Keadaan (State Space) NutriNexa
-# Kasus: Mencari rute substitusi bahan dari bahan awal ke target gizi dengan cost terkecil
 graph = {
     'Bahan_Awal': [('Substitusi_A', 2), ('Substitusi_B', 5)],
     'Substitusi_A': [('Substitusi_C', 4), ('Target_Gizi', 7)],

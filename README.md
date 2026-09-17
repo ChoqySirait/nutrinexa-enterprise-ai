@@ -4,9 +4,9 @@
 
 ## 👥 Tim Pengembang
 - **AI Architect & Model Lead:** Choqy Pananda Sirait (12S24012)
-- **Data & Knowledge Engineer:** [Nama Anggota 2] ([NIM])
-- **Integration & Interface Engineer:** [Nama Anggota 3] ([NIM])
-- **QA, Evaluation & Ethics Lead:** [Nama Anggota 4] ([NIM])
+- **Data & Knowledge Engineer:** Yesika Nadia Saragih (12S24024)
+- **Integration & Interface Engineer:** Josua Sianturi (12S24035)
+- **QA, Evaluation & Ethics Lead:** Jaya Bestina Simbolon (12S24023)
 
 ## 🚀 Setup & Instalasi Proyek
 Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
