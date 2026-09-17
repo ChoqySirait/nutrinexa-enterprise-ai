@@ -32,7 +32,7 @@ graph TD
         Agent --> Optimizer[Optimasi Resep Zero-Waste & A* Search]
     end
 
-    Optimizer -->|Algoritma A* (Cost & Heuristic)| Solver[src/search_solver.py]
+    Optimizer -->|"Algoritma A* (Cost & Heuristic)"| Solver["src/search_solver.py"]
     Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
     
     Output -->  UI
