@@ -15,3 +15,25 @@ Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
    ```bash
    git clone [https://github.com/CERTAN-KEL-15/CERTAN-KEL-15.git](https://github.com/CERTAN-KEL-15/CERTAN-KEL-15.git)
    cd CERTAN-KEL-15
+   ```
+
+## 📐 Arsitektur Sistem (System Architecture)
+
+Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (`src/search_solver.py`):
+
+```mermaid
+graph TD
+    User([Pengguna / Enterprise Client]) -->|Request / Konsultasi| UI[X-Platform Interface / API Gateway]
+    
+    subgraph NutriNexa Core Enterprise AI Engine
+        UI --> Agent[Agentic RAG Orchestrator]
+        Agent --> Knowledge[Knowledge Base / Vector DB]
+        Agent --> Vision[Diagnostik Gizi Visual]
+        Agent --> Optimizer[Optimasi Resep Zero-Waste & A* Search]
+    end
+
+    Optimizer -->|Algoritma A* (Cost & Heuristic)| Solver[src/search_solver.py]
+    Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
+    
+    Output --> UI
+```
