@@ -8,7 +8,6 @@ graph = {
     'Target_Gizi': []
 }
 
-# Heuristik Admissible (Perkiraan biaya sisa ke target gizi)
 heuristic = {
     'Bahan_Awal': 5,
     'Substitusi_A': 3,
