@@ -32,6 +32,8 @@ CERTAN-KEL-15/
 ├── README.md            # Dokumentasi utama repositori
 └── uv.lock              # Berkas kunci versi dependensi uv
 
+
+
 ## 📐 Arsitektur Sistem (System Architecture)
 
 Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (`src/search_solver.py`):
@@ -51,8 +53,8 @@ graph TD
     Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
     
     Output --> UI
+```
 
-    
 # Alur Sistem
 
 Secara umum, proses NutriNexa berjalan sebagai berikut:
