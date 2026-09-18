@@ -19,14 +19,26 @@ Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
    cd CERTAN-KEL-15
    ```
 
-## 📐 Arsitektur Sistem (System Architecture)
 
-Arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, Knowledge Base, Diagnostik Gizi Visual, dan Optimasi Resep Zero-Waste berbasis A* Search. Setiap komponen bekerja secara terintegrasi untuk menghasilkan rekomendasi gizi dan substitusi bahan pangan.
+🛠 Struktur Direktori Proyek
+CERTAN-KEL-15/
+├── .venv/               # Virtual environment otomatis dari Astral uv
+├── docs/                # Berkas dokumentasi dan laporan teknis
+├── src/                 # Modul logika utama sistem
+│   └── search_solver.py # Skrip Baseline A* Search (Milestone 1)
+├── tests/               # Berkas pengujian unit otomatis (pytest)
+├── .gitignore           # Konfigurasi pengisolasian file git
+├── LICENSE              # Lisensi proyek (MIT License)
+├── pyproject.toml       # Manifest dependensi Astral uv
+├── README.md            # Dokumentasi utama repositori
+└── uv.lock              # Berkas kunci versi dependensi uv
 
-```mermaid
+📐 Arsitektur Sistem (System Architecture)
+Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (src/search_solver.py):
+
 graph TD
     User([Pengguna / Enterprise Client]) -->|Request / Konsultasi| UI[X-Platform Interface / API Gateway]
-
+    
     subgraph NutriNexa Core Enterprise AI Engine
         UI --> Agent[Agentic RAG Orchestrator]
         Agent --> Knowledge[Knowledge Base / Vector DB]
@@ -36,9 +48,10 @@ graph TD
 
     Optimizer -->|"Algoritma A* (Cost & Heuristic)"| Solver["src/search_solver.py"]
     Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
+    
     Output --> UI
-    UI --> User
 
+    
 # Alur Sistem
 
 Secara umum, proses NutriNexa berjalan sebagai berikut:
