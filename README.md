@@ -21,12 +21,12 @@ Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
 
 ## 📐 Arsitektur Sistem (System Architecture)
 
-Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (`src/search_solver.py`):
+Arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, Knowledge Base, Diagnostik Gizi Visual, dan Optimasi Resep Zero-Waste berbasis A* Search. Setiap komponen bekerja secara terintegrasi untuk menghasilkan rekomendasi gizi dan substitusi bahan pangan.
 
 ```mermaid
 graph TD
     User([Pengguna / Enterprise Client]) -->|Request / Konsultasi| UI[X-Platform Interface / API Gateway]
-    
+
     subgraph NutriNexa Core Enterprise AI Engine
         UI --> Agent[Agentic RAG Orchestrator]
         Agent --> Knowledge[Knowledge Base / Vector DB]
@@ -36,17 +36,37 @@ graph TD
 
     Optimizer -->|"Algoritma A* (Cost & Heuristic)"| Solver["src/search_solver.py"]
     Solver --> Output[Rute Substitusi Pangan & Rekomendasi Gizi]
-    
-    Output -->  UI
-```
+    Output --> UI
+    UI --> User
 
 # Alur Sistem
 
 Secara umum, proses NutriNexa berjalan sebagai berikut:
 1. Pengguna memberikan request atau konsultasi melalui interface sistem.
-2. X-Platform Interface/API Gateway menerima request dan meneruskannya ke sistem inti.
-3. Agentic RAG Orchestrator mengatur proses pemrosesan request dan menentukan sumber informasi yang diperlukan.
-4. Knowledge Base / Vector DB menyediakan informasi yang relevan bagi proses retrieval.
-5. Diagnostik Gizi Visual digunakan untuk memproses informasi yang berasal dari input visual.
-6. Optimasi Resep Zero-Waste menggunakan pendekatan A* Search untuk mencari rute substitusi berdasarkan cost dan heuristic.
-Hasil pemrosesan kemudian dikembalikan kepada pengguna dalam bentuk rekomendasi.
+2. X-Platform Interface / API Gateway menerima request dan meneruskannya ke sistem inti.
+3. Agentic RAG Orchestrator mengatur proses pemrosesan request dan menentukan informasi yang diperlukan.
+4. Knowledge Base / Vector DB menyediakan informasi yang relevan untuk proses retrieval.
+5. Diagnostik Gizi Visual memproses informasi yang berasal dari input berupa gambar.
+6. Optimasi Resep Zero-Waste menggunakan A* Search untuk mencari rute substitusi bahan berdasarkan cost dan heuristic.
+7. Hasil pemrosesan berupa rekomendasi gizi dan rute substitusi pangan dikembalikan kepada pengguna melalui interface sistem.
+
+
+## Input
+
+NutriNexa menerima beberapa jenis input yang dapat digunakan dalam proses analisis, yaitu:
+
+- **Pertanyaan atau request pengguna** terkait informasi dan kebutuhan gizi.
+- **Gambar makanan atau bahan pangan** untuk proses Diagnostik Gizi Visual.
+- **Data bahan dan persediaan** dalam format terstruktur untuk proses optimasi.
+- **Dokumen SOP nutrisi** sebagai sumber pengetahuan untuk proses retrieval.
+
+## Output
+
+Berdasarkan input yang diberikan, NutriNexa menghasilkan:
+
+- **Informasi dan jawaban terkait gizi** berdasarkan pengetahuan yang relevan.
+- **Hasil analisis dari input visual** terkait informasi gizi.
+- **Rekomendasi substitusi bahan pangan** berdasarkan kondisi bahan dan kebutuhan gizi.
+- **Rute hasil pencarian A*** berdasarkan cost dan heuristic.
+- **Rekomendasi resep Zero-Waste** untuk membantu pemanfaatan bahan makanan yang tersedia atau tersisa.
+
