@@ -20,7 +20,6 @@ Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
    ```
 
 
-🛠 Struktur Direktori Proyek
 CERTAN-KEL-15/
 ├── .venv/               # Virtual environment otomatis dari Astral uv
 ├── docs/                # Berkas dokumentasi dan laporan teknis
@@ -33,9 +32,11 @@ CERTAN-KEL-15/
 ├── README.md            # Dokumentasi utama repositori
 └── uv.lock              # Berkas kunci versi dependensi uv
 
-📐 Arsitektur Sistem (System Architecture)
-Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (src/search_solver.py):
+## 📐 Arsitektur Sistem (System Architecture)
 
+Diagram arsitektur sistem NutriNexa menunjukkan integrasi antara antarmuka pengguna, Agentic RAG, modul Diagnostik Gizi Visual, serta mesin Optimasi Resep Zero-Waste berbasis A* Search (`src/search_solver.py`):
+
+```mermaid
 graph TD
     User([Pengguna / Enterprise Client]) -->|Request / Konsultasi| UI[X-Platform Interface / API Gateway]
     
