@@ -20,6 +20,9 @@ Proyek ini mengadopsi manajer paket modern **Astral `uv`**.
    ```
 
 
+## 🛠 Struktur Direktori Proyek
+
+```text
 CERTAN-KEL-15/
 ├── .venv/               # Virtual environment otomatis dari Astral uv
 ├── docs/                # Berkas dokumentasi dan laporan teknis
@@ -31,6 +34,8 @@ CERTAN-KEL-15/
 ├── pyproject.toml       # Manifest dependensi Astral uv
 ├── README.md            # Dokumentasi utama repositori
 └── uv.lock              # Berkas kunci versi dependensi uv
+
+```
 
 
 
